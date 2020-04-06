@@ -13,6 +13,9 @@
 		1B5742642432690300DAD00A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B5742622432690300DAD00A /* Main.storyboard */; };
 		1B5742662432690400DAD00A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B5742652432690400DAD00A /* Assets.xcassets */; };
 		1B5742692432690400DAD00A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B5742672432690400DAD00A /* LaunchScreen.storyboard */; };
+		1B73A1FF24398259001DFDB4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B73A1FE24398259001DFDB4 /* Constants.swift */; };
+		1B73A20224398506001DFDB4 /* TopTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B73A20124398506001DFDB4 /* TopTextFieldDelegate.swift */; };
+		1B73A2042439867A001DFDB4 /* BottomTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B73A2032439867A001DFDB4 /* BottomTextFieldDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		1B5742652432690400DAD00A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B5742682432690400DAD00A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B57426A2432690400DAD00A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B73A1FE24398259001DFDB4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1B73A20124398506001DFDB4 /* TopTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTextFieldDelegate.swift; sourceTree = "<group>"; };
+		1B73A2032439867A001DFDB4 /* BottomTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTextFieldDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,7 @@
 		1B57425B2432690300DAD00A /* MemeApp */ = {
 			isa = PBXGroup;
 			children = (
+				1B73A20024398425001DFDB4 /* delegates */,
 				1B57425C2432690300DAD00A /* AppDelegate.swift */,
 				1B57425E2432690300DAD00A /* SceneDelegate.swift */,
 				1B5742602432690300DAD00A /* ViewController.swift */,
@@ -63,8 +70,18 @@
 				1B5742652432690400DAD00A /* Assets.xcassets */,
 				1B5742672432690400DAD00A /* LaunchScreen.storyboard */,
 				1B57426A2432690400DAD00A /* Info.plist */,
+				1B73A1FE24398259001DFDB4 /* Constants.swift */,
 			);
 			path = MemeApp;
+			sourceTree = "<group>";
+		};
+		1B73A20024398425001DFDB4 /* delegates */ = {
+			isa = PBXGroup;
+			children = (
+				1B73A20124398506001DFDB4 /* TopTextFieldDelegate.swift */,
+				1B73A2032439867A001DFDB4 /* BottomTextFieldDelegate.swift */,
+			);
+			path = delegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +158,9 @@
 				1B5742612432690300DAD00A /* ViewController.swift in Sources */,
 				1B57425D2432690300DAD00A /* AppDelegate.swift in Sources */,
 				1B57425F2432690300DAD00A /* SceneDelegate.swift in Sources */,
+				1B73A2042439867A001DFDB4 /* BottomTextFieldDelegate.swift in Sources */,
+				1B73A20224398506001DFDB4 /* TopTextFieldDelegate.swift in Sources */,
+				1B73A1FF24398259001DFDB4 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
