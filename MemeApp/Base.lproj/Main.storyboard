@@ -48,7 +48,7 @@
                                 <items>
                                     <barButtonItem title="Share" image="square.and.arrow.up" catalog="system" id="2Ta-hF-6Ga">
                                         <connections>
-                                            <action selector="saveMeme:" destination="BYZ-38-t0r" id="oJV-Kh-GzA"/>
+                                            <action selector="shareMeme:" destination="BYZ-38-t0r" id="p9f-Pu-0gm"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="5Jl-6m-nek"/>

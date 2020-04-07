@@ -60,9 +60,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key> NSCameraUsageDescription </key>
+	<key> NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) uses Cameras</string>
-	<key> NSPhotoLibraryUsageDescription </key>
+	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>$(PRODUCT_NAME) uses photo library</string>
 </dict>
 </plist>

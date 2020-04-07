@@ -36,7 +36,8 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         shareBtn.isEnabled = false
     }
     
-    @IBAction func saveMeme(_ sender: Any) {
+    
+    @IBAction func shareMeme(_ sender: Any) {
         let memedImage =  generateMemedImage()
         let viewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         present(viewController,animated: true)
@@ -123,24 +124,37 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     
     private func generateMemedImage() -> UIImage {
         
-        hideToolbars()
+        prepareForScreenshot()
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
-        showToolbars()
-        let imageFrame = imageView.frame
         
+        setupAfterScreenshot()
+        
+        let imageFrame = imageView.frame
         return crop(memedImage, rect: CGRect(x: imageFrame.origin.x, y: imageFrame.origin.y, width: imageFrame.width, height: imageFrame.height))
     }
     
     private func prepareForScreenshot(){
-        
+        hideToolbars()
+        if topTextField.text == Constants.DEFAULT_TOP_TEXT {
+            topTextField.text = ""
+        }
+        if bottomTextField.text == Constants.DEFAULT_BOTTOM_TEXT {
+            bottomTextField.text = ""
+        }
     }
     
     private func setupAfterScreenshot(){
-        
+        showToolbars()
+        if topTextField.text == "" {
+            topTextField.text = Constants.DEFAULT_TOP_TEXT
+        }
+        if bottomTextField.text == ""{
+            bottomTextField.text = Constants.DEFAULT_BOTTOM_TEXT
+        }
     }
     
     private func showToolbars(){
@@ -170,5 +184,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         bottomTextField.text =  Constants.DEFAULT_BOTTOM_TEXT
         shareBtn.isEnabled = false
     }
+    
 }
 
