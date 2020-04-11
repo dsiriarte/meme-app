@@ -32,7 +32,8 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     override func viewDidLoad() {
         super.viewDidLoad()
         cameraBtn.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
-        setUpTextFields()
+        setUpTextFields(topTextField, Constants.DEFAULT_TOP_TEXT, topTextFieldDelegate)
+        setUpTextFields(bottomTextField, Constants.DEFAULT_BOTTOM_TEXT, bottomTextFieldDelegate)
         shareBtn.isEnabled = false
     }
     
@@ -40,6 +41,10 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     @IBAction func shareMeme(_ sender: Any) {
         let memedImage =  generateMemedImage()
         let viewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        viewController.completionWithItemsHandler = { activity, success, items, error in
+            let meme = Meme(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, originalImage: self.imageView.image!, memedImage: memedImage)
+
+        }
         present(viewController,animated: true)
     }
     
@@ -66,7 +71,9 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     }
     
     @objc func keyboardWillShow(_ notification:Notification) {
+         if bottomTextField.isEditing {
         view.frame.origin.y -= getKeyboardHeight(notification)
+        }
     }
     
     @objc func keyboardWillHide(_ notification:Notification) {
@@ -80,31 +87,25 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         return keyboardSize.cgRectValue.height
     }
     
-    private func setUpTextFields(){
-        topTextField.delegate = topTextFieldDelegate
-        topTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.textAlignment = .center
-        topTextField.text = Constants.DEFAULT_TOP_TEXT
-        topTextField.textColor = UIColor.white
-        
-        bottomTextField.delegate = bottomTextFieldDelegate
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.textAlignment = .center
-        bottomTextField.text = Constants.DEFAULT_BOTTOM_TEXT
-        bottomTextField.textColor = UIColor.white
+    private func setUpTextFields(_ textField: UITextField, _ defaultText: String, _ delegate: UITextFieldDelegate){
+        textField.delegate = delegate
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.textAlignment = .center
+        textField.text = defaultText
     }
     
     @IBAction func pickImage(_ sender: Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
-        present(imagePicker, animated: true, completion: nil)
+                pickFromSource(.photoLibrary)
     }
     
     @IBAction func pickImageFromCamera(_ sender: Any){
+               pickFromSource(.camera)
+    }
+    
+    func pickFromSource(_ source: UIImagePickerController.SourceType) {
         let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .camera
+        imagePicker.delegate = self;
+        imagePicker.sourceType = source
         present(imagePicker, animated: true, completion: nil)
     }
     

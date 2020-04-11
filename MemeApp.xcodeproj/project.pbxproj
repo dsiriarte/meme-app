@@ -16,6 +16,7 @@
 		1B73A1FF24398259001DFDB4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B73A1FE24398259001DFDB4 /* Constants.swift */; };
 		1B73A20224398506001DFDB4 /* TopTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B73A20124398506001DFDB4 /* TopTextFieldDelegate.swift */; };
 		1B73A2042439867A001DFDB4 /* BottomTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B73A2032439867A001DFDB4 /* BottomTextFieldDelegate.swift */; };
+		1B95C81E2441760E00749D00 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B95C81D2441760E00749D00 /* Meme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		1B73A1FE24398259001DFDB4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1B73A20124398506001DFDB4 /* TopTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTextFieldDelegate.swift; sourceTree = "<group>"; };
 		1B73A2032439867A001DFDB4 /* BottomTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTextFieldDelegate.swift; sourceTree = "<group>"; };
+		1B95C81D2441760E00749D00 /* Meme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		1B57425B2432690300DAD00A /* MemeApp */ = {
 			isa = PBXGroup;
 			children = (
+				1B95C81C244175E500749D00 /* models */,
 				1B73A20024398425001DFDB4 /* delegates */,
 				1B57425C2432690300DAD00A /* AppDelegate.swift */,
 				1B57425E2432690300DAD00A /* SceneDelegate.swift */,
@@ -82,6 +85,14 @@
 				1B73A2032439867A001DFDB4 /* BottomTextFieldDelegate.swift */,
 			);
 			path = delegates;
+			sourceTree = "<group>";
+		};
+		1B95C81C244175E500749D00 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				1B95C81D2441760E00749D00 /* Meme.swift */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +168,7 @@
 			files = (
 				1B5742612432690300DAD00A /* ViewController.swift in Sources */,
 				1B57425D2432690300DAD00A /* AppDelegate.swift in Sources */,
+				1B95C81E2441760E00749D00 /* Meme.swift in Sources */,
 				1B57425F2432690300DAD00A /* SceneDelegate.swift in Sources */,
 				1B73A2042439867A001DFDB4 /* BottomTextFieldDelegate.swift in Sources */,
 				1B73A20224398506001DFDB4 /* TopTextFieldDelegate.swift in Sources */,
