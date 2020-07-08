@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class CreateMemeViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraBtn: UIBarButtonItem!
@@ -43,9 +43,16 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         let viewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         viewController.completionWithItemsHandler = { activity, success, items, error in
             let meme = Meme(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, originalImage: self.imageView.image!, memedImage: memedImage)
-
+            self.save(meme: meme)
+            self.dismiss(animated: true, completion: nil)
         }
         present(viewController,animated: true)
+    }
+    
+    func save( meme : Meme) {
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -111,6 +118,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     
     @IBAction func canelBtnClicked(_ sender: Any) {
         reset()
+        self.dismiss(animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
