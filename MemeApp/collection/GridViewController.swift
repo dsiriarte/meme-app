@@ -15,12 +15,18 @@ class GridViewController: UICollectionViewController {
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     // MARK: Collection View Data Source
+    @IBOutlet var collectionViewController: UICollectionView!
     
       var memes: [Meme]! {
             let object = UIApplication.shared.delegate
             let appDelegate = object as! AppDelegate
             return appDelegate.memes
         }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionViewController.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

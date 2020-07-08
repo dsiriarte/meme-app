@@ -252,6 +252,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="Eth-dc-Vsm"/>
                     <connections>
+                        <outlet property="collectionViewController" destination="Hq0-ot-L4M" id="AQd-EJ-gaP"/>
                         <outlet property="flowLayout" destination="IfT-rn-oO9" id="AM6-Ox-pzq"/>
                     </connections>
                 </collectionViewController>
