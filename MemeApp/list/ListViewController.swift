@@ -20,6 +20,11 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return appDelegate.memes
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.estimatedRowHeight = UITableView.automaticDimension
+        tableView.register(ListViewCell.self, forCellReuseIdentifier : "MemeCell")
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -28,29 +33,25 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBAction func createMeme(_ sender: Any) {
         let detailController = storyboard?.instantiateViewController(withIdentifier: "CreateMemeViewController") as! CreateMemeViewController
-          detailController.modalPresentationStyle = .fullScreen
-          self.present(detailController,animated: true,completion: nil)
+        detailController.modalPresentationStyle = .fullScreen
+        self.present(detailController,animated: true,completion: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-          return self.memes.count
-      }
-      
-       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-          
-          let cell = tableView.dequeueReusableCell(withIdentifier: "MemeCell")!
-          let meme = self.memes[(indexPath as NSIndexPath).row]
-          
-          // Set the name and image
-    cell.textLabel?.text = "\(meme.topText) - \(meme.bottomText)"
-          cell.imageView?.image = meme.memedImage
-          
-          return cell
-      }
-
-       func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-          return true
-      }
+        return self.memes.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MemeCell") as! ListViewCell
+        let meme = self.memes[(indexPath as NSIndexPath).row]
+        cell.meme = meme
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+       return UITableView.automaticDimension
+    }
     
     
 }
