@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KRf-5S-kTC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KRf-5S-kTC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -121,7 +121,49 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="165" y="93"/>
+            <point key="canvasLocation" x="470" y="-161"/>
+        </scene>
+        <!--Meme Detail View Controller-->
+        <scene sceneID="9zm-tp-X9t">
+            <objects>
+                <viewController storyboardIdentifier="MemeDetailViewController" id="v3q-9N-zbB" customClass="MemeDetailViewController" customModule="MemeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Et-HF-aQv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TFO-0c-608">
+                                <rect key="frame" x="20" y="36" width="374" height="834"/>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fG2-AX-tfV">
+                                <rect key="frame" x="0.0" y="44" width="408" height="44"/>
+                                <items>
+                                    <barButtonItem title="Sent Memes" image="chevron.left" catalog="system" width="75" id="Faf-Zy-VgA">
+                                        <connections>
+                                            <action selector="backAction:" destination="v3q-9N-zbB" id="LD7-HK-HfT"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="TFO-0c-608" secondAttribute="bottom" constant="-8" id="0aQ-P7-7mD"/>
+                            <constraint firstItem="xVx-LT-rVt" firstAttribute="trailing" secondItem="fG2-AX-tfV" secondAttribute="trailing" constant="6" id="3X9-Qp-hq4"/>
+                            <constraint firstItem="TFO-0c-608" firstAttribute="centerX" secondItem="xVx-LT-rVt" secondAttribute="centerX" id="88T-nh-KUZ"/>
+                            <constraint firstItem="TFO-0c-608" firstAttribute="leading" secondItem="3Et-HF-aQv" secondAttribute="leadingMargin" id="Ixl-m0-Nv0"/>
+                            <constraint firstItem="fG2-AX-tfV" firstAttribute="leading" secondItem="xVx-LT-rVt" secondAttribute="leading" id="PqJ-E8-PdE"/>
+                            <constraint firstItem="TFO-0c-608" firstAttribute="centerY" secondItem="xVx-LT-rVt" secondAttribute="centerY" id="SIj-6L-FFe"/>
+                            <constraint firstItem="TFO-0c-608" firstAttribute="top" secondItem="fG2-AX-tfV" secondAttribute="bottom" constant="-52" id="baF-b5-lsz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xVx-LT-rVt"/>
+                    </view>
+                    <connections>
+                        <outlet property="image" destination="TFO-0c-608" id="zHU-rI-Yfz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uRM-DU-m9N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1424.6376811594205" y="223.66071428571428"/>
         </scene>
         <!--List View Controller-->
         <scene sceneID="vY6-1H-x79">
@@ -188,7 +230,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZDp-RK-kli" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-597" y="93"/>
+            <point key="canvasLocation" x="-597" y="86"/>
         </scene>
         <!--Grid-->
         <scene sceneID="Vem-Vz-rK8">
@@ -258,11 +300,12 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eKM-pa-NgA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="164" y="771"/>
+            <point key="canvasLocation" x="470" y="771"/>
         </scene>
     </scenes>
     <resources>
         <image name="camera" catalog="system" width="128" height="96"/>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>

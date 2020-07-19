@@ -32,9 +32,9 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     @IBAction func createMeme(_ sender: Any) {
-        let detailController = storyboard?.instantiateViewController(withIdentifier: "CreateMemeViewController") as! CreateMemeViewController
-        detailController.modalPresentationStyle = .fullScreen
-        self.present(detailController,animated: true,completion: nil)
+        let createController = storyboard?.instantiateViewController(withIdentifier: "CreateMemeViewController") as! CreateMemeViewController
+        createController.modalPresentationStyle = .fullScreen
+        self.present(createController,animated: true,completion: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -42,7 +42,6 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "MemeCell") as! ListViewCell
         let meme = self.memes[(indexPath as NSIndexPath).row]
         cell.meme = meme
@@ -50,8 +49,14 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-       return UITableView.automaticDimension
+        return UITableView.automaticDimension
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        let detailController = storyboard?.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
+        detailController.modalPresentationStyle = .fullScreen
+        detailController.meme = self.memes[(indexPath as NSIndexPath).row]
+        self.present(detailController,animated: true,completion: nil)
+    }
     
 }

@@ -73,13 +73,12 @@ class CreateMemeViewController: UIViewController,UIImagePickerControllerDelegate
     }
     
     func unsubscribeFromKeyboardNotifications() {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self)
     }
     
     @objc func keyboardWillShow(_ notification:Notification) {
-         if bottomTextField.isEditing {
-        view.frame.origin.y -= getKeyboardHeight(notification)
+        if bottomTextField.isEditing {
+            view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
     
@@ -102,11 +101,11 @@ class CreateMemeViewController: UIViewController,UIImagePickerControllerDelegate
     }
     
     @IBAction func pickImage(_ sender: Any) {
-                pickFromSource(.photoLibrary)
+        pickFromSource(.photoLibrary)
     }
     
     @IBAction func pickImageFromCamera(_ sender: Any){
-               pickFromSource(.camera)
+        pickFromSource(.camera)
     }
     
     func pickFromSource(_ source: UIImagePickerController.SourceType) {
